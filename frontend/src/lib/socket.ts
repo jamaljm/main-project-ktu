@@ -35,7 +35,8 @@ class SocketService {
     console.log("Attempting to connect to WebSocket server...");
 
     const WEBSOCKET_URL =
-      process.env.NEXT_PUBLIC_WEBSOCKET_URL || "https://cea8-2406-8800-9014-a082-f8bd-318a-9deb-5a8e.ngrok-free.app";
+      process.env.NEXT_PUBLIC_WEBSOCKET_URL ||
+      "https://cea8-2406-8800-9014-a082-f8bd-318a-9deb-5a8e.ngrok-free.app";
 
     try {
       this.socket = io(WEBSOCKET_URL, {
