@@ -1,11 +1,19 @@
-require('dotenv').config({ path: '../.env' }); // Load environment variables from .env file in the parent directory
+require("dotenv").config({ path: "../.env" }); // Load environment variables from .env file in the parent directory
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const fetch = require("node-fetch"); // Import fetch for API requests
+const http = require("http"); // Import HTTP module for server creation
+const setupWebSocketServer = require("./websocket"); // Import WebSocket setup function
 
 const app = express();
 const PORT = 5000;
+
+// Create HTTP server using Express app
+const server = http.createServer(app);
+
+// Initialize WebSocket with our HTTP server
+const io = setupWebSocketServer(server);
 
 // Middleware
 app.use(cors());
@@ -25,13 +33,13 @@ app.post("/api/say", async (req, res) => {
     const response = await fetch("https://api.openai.com/v1/audio/speech", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${apiKey}`,
+        Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "tts-1",  // Ensure the correct model is used
-        voice: "alloy",          // You can change the voice if needed
-        input: text,             // The text to convert to speech
+        model: "tts-1", // Ensure the correct model is used
+        voice: "alloy", // You can change the voice if needed
+        input: text, // The text to convert to speech
       }),
     });
 
@@ -43,7 +51,7 @@ app.post("/api/say", async (req, res) => {
     }
 
     // Set headers to stream the MP3 audio data back to the client
-    res.setHeader('Content-Type', 'audio/mp3');
+    res.setHeader("Content-Type", "audio/mp3");
     const audioStream = response.body;
 
     // Pipe the OpenAI audio response directly to the client
@@ -55,6 +63,7 @@ app.post("/api/say", async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`WebSocket server is also running on the same port`);
 });

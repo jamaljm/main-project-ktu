@@ -35,6 +35,12 @@ export default function Navigation() {
             <NavLink href="/apply">Apply</NavLink>
             <NavLink href="/status">Check Status</NavLink>
             <NavLink href="/contact">Contact</NavLink>
+            <NavLink href="/socket-test">
+              <span className="flex items-center">
+                <span className="h-2 w-2 bg-green-500 rounded-full mr-1.5"></span>
+                WebSocket Demo
+              </span>
+            </NavLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,6 +74,12 @@ export default function Navigation() {
               <MobileNavLink href="/apply">Apply</MobileNavLink>
               <MobileNavLink href="/status">Check Status</MobileNavLink>
               <MobileNavLink href="/contact">Contact</MobileNavLink>
+              <MobileNavLink href="/socket-test">
+                <span className="flex items-center">
+                  <span className="h-2 w-2 bg-green-500 rounded-full mr-1.5"></span>
+                  WebSocket Demo
+                </span>
+              </MobileNavLink>
             </div>
           </div>
         )}
