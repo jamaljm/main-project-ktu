@@ -75,14 +75,53 @@ export default function Home() {
               Your gateway to hassle-free certificate applications. Fast,
               secure, and efficient government services at your fingertips.
             </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-green-800 hover:bg-green-100"
-            >
-              <Link href="/apply">Apply Now</Link>
-            </Button>
+            <div className="flex gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-white text-green-800 hover:bg-green-100"
+              >
+                <Link href="/apply">Apply Now</Link>
+              </Button>
+
+              <Button
+                asChild
+                size="lg"
+                className="bg-blue-600 text-white hover:bg-blue-700"
+              >
+                <Link href="/voice-chat">Try Voice Chat</Link>
+              </Button>
+            </div>
           </div>
+        </div>
+
+        {/* New Feature Banner */}
+        <div className="max-w-7xl mx-auto mt-8 px-4">
+          <Card className="border-2 border-blue-300 bg-blue-50 overflow-hidden">
+            <CardContent className="p-0">
+              <div className="flex flex-col md:flex-row">
+                <div className="p-6 md:w-2/3">
+                  <h3 className="text-2xl font-bold text-blue-800 mb-2">
+                    🎙️ New! OpenAI Voice Assistant
+                  </h3>
+                  <p className="text-blue-700 mb-4">
+                    Experience our new AI voice assistant powered by OpenAI. Ask
+                    questions, get information, and receive help with your
+                    applications through natural voice conversation.
+                  </p>
+                  <Button asChild className="bg-blue-600 hover:bg-blue-700">
+                    <Link href="/voice-chat">Try Voice Chat Now</Link>
+                  </Button>
+                </div>
+                <div className="md:w-1/3 bg-blue-600 flex items-center justify-center p-6">
+                  <div className="text-white text-center">
+                    <div className="text-5xl mb-2">🎙️ → 🤖 → 🔊</div>
+                    <p className="font-medium">Talk naturally with AI</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Certificate Cards Section */}
