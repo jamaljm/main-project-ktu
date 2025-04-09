@@ -285,6 +285,3 @@ The project follows a modular architecture for easy maintenance and extension:
 - Start the server with `npm run dev`
 - Open your browser to [http://localhost:3000](http://localhost:3000)
 
-## License
-
-See [LICENSE](LICENSE) file for details.
